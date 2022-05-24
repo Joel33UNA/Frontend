@@ -3,10 +3,7 @@ package com.example.uiexamples
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
+import android.widget.*
 
 class EditUsuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +47,7 @@ class EditUsuario : AppCompatActivity() {
             Usuarios.instance.editUsuario(usuarioNuevo ,pos)
             val intent = Intent(this, CrudUsuarios::class.java)
             startActivity(intent)
+            //Toast.makeText(this, "Usuario ${usuario.nombre} actualizado exitosamente", Toast.LENGTH_SHORT).show()
         }
     }
 }

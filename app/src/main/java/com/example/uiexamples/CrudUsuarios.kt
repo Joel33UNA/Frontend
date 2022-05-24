@@ -112,12 +112,8 @@ class CrudUsuarios : AppCompatActivity() {
 
         }
 
-
-
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
         itemTouchHelper.attachToRecyclerView(lista)
-
-
 
         val add: FloatingActionButton = findViewById(R.id.add)
         add.setOnClickListener {

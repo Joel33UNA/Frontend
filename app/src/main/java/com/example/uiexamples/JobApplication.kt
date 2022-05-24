@@ -30,7 +30,8 @@ class JobApplication : AppCompatActivity() {
         textViewPosicion.text = usuario.posicion
         textViewFecha.text = usuario.fechaInicio
         volver.setOnClickListener{
-            val intent = Intent(this, MenuJob::class.java)
+            val intent = Intent(this, Login::class.java)
+            finish()
             startActivity(intent)
         }
     }
