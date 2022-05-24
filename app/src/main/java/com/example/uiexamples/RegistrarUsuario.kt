@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class RegistrarUsuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +31,7 @@ class RegistrarUsuario : AppCompatActivity() {
             Usuarios.instance.addUsuario(usuario)
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
+            Toast.makeText(this, "Usuario ${usuario.nombre} registrado exitosamente", Toast.LENGTH_SHORT).show()
         }
     }
 }
