@@ -35,7 +35,7 @@ class Login : AppCompatActivity() {
                     i.putExtra("Login", login)
                     startActivity(i)
                 }
-                else{
+                else if (rol == "standard"){
                     val i = Intent(this, JobApplication::class.java)
                     i.putExtra("Login", login)
                     startActivity(i)

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 
 class RegistrarUsuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,10 +25,12 @@ class RegistrarUsuario : AppCompatActivity() {
             val fechaInicio = findViewById<EditText>(R.id.textFecha)
             val username = findViewById<EditText>(R.id.textUsuario)
             val password = findViewById<EditText>(R.id.textPassword)
+            val rolRadioGroup = findViewById<RadioGroup>(R.id.editRadioRol)
+            val rolRadioButton = findViewById<RadioButton>(rolRadioGroup.checkedRadioButtonId)
 
             val usuario = Usuario(nombre.text.toString(), apellido.text.toString(), direccion.text.toString(),
                 correo.text.toString(), telefono.text.toString(), posicion.text.toString(),
-                fechaInicio.text.toString(), username.text.toString(), password.text.toString(), "standard")
+                fechaInicio.text.toString(), username.text.toString(), password.text.toString(), rolRadioButton.text.toString())
             Usuarios.instance.addUsuario(usuario)
             val intent = Intent(this, Login::class.java)
             startActivity(intent)

@@ -93,6 +93,7 @@ class CrudUsuarios : AppCompatActivity() {
                     lista.adapter = adaptador
                     val intent = Intent(this@CrudUsuarios, EditUsuario::class.java)
                     intent.putExtra("position",position)
+                    intent.putExtra("user", usuario)
                     startActivity(intent)
                 }
             }
