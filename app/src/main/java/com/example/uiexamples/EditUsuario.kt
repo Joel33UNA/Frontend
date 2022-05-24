@@ -47,7 +47,7 @@ class EditUsuario : AppCompatActivity() {
             Usuarios.instance.editUsuario(usuarioNuevo ,pos)
             val intent = Intent(this, CrudUsuarios::class.java)
             startActivity(intent)
-            //Toast.makeText(this, "Usuario ${usuario.nombre} actualizado exitosamente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Usuario ${usuario.nombre} actualizado exitosamente", Toast.LENGTH_SHORT).show()
         }
     }
 }
