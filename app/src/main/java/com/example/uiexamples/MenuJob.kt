@@ -61,8 +61,16 @@ class MenuJob : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
                 startActivity(i)
             }
             R.id.usuarios -> {
-                val i = Intent(this, CrudUsuarios::class.java)
-                startActivity(i)
+                val bundle = intent.extras
+                val l =  bundle?.getSerializable("Login") as Usuario
+                if (l.rol == "administrador"){
+                    val i = Intent(this, CrudUsuarios::class.java)
+                    startActivity(i)
+                }else{
+                    val i = Intent(this, JobApplication::class.java)
+                    i.putExtra("Login",l)
+                    startActivity(i)
+                }
             }
             R.id.logout -> {
                 val i = Intent(this, Login::class.java)

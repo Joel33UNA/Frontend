@@ -29,17 +29,9 @@ class Login : AppCompatActivity() {
             if(usuarios.login(user_name.toString(), password.toString())){
                 val bundle = Bundle()
                 val login = usuarios.loginU(user_name.toString(), password.toString())
-                val rol:String = login!!.rol.toString()
-                if(rol == "administrador"){
-                    val i = Intent(this, MenuJob::class.java)
-                    i.putExtra("Login", login)
-                    startActivity(i)
-                }
-                else if (rol == "standard"){
-                    val i = Intent(this, JobApplication::class.java)
-                    i.putExtra("Login", login)
-                    startActivity(i)
-                }
+                val i = Intent(this, MenuJob::class.java)
+                i.putExtra("Login", login)
+                startActivity(i)
             }else{
                 Toast.makeText(this, "El usuario ${user_name.toString()} no se encuentra registrado o las credenciales son incorrectas", Toast.LENGTH_SHORT).show()
             }
