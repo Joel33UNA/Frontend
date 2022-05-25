@@ -11,7 +11,7 @@ class JobApplication : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_job_application)
 
-        val usuario: Usuario = intent.getSerializableExtra("Login") as Usuario
+        val usuario: Usuario = intent.getSerializableExtra("usuario") as Usuario
 
         val textViewNombre = findViewById<TextView>(R.id.textView20)
         val textViewApellido = findViewById<TextView>(R.id.textView21)
@@ -31,6 +31,7 @@ class JobApplication : AppCompatActivity() {
         textViewFecha.text = usuario.fechaInicio
         volver.setOnClickListener{
             val intent = Intent(this, MenuJob::class.java)
+            intent.putExtra("usuario", usuario)
             startActivity(intent)
         }
     }

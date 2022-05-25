@@ -30,7 +30,7 @@ class InfoUsuario : AppCompatActivity() {
 
         btn.setOnClickListener{
             val intent = Intent(this, MenuJob::class.java)
-            intent.putExtra("Login", persona)
+            intent.putExtra("usuario", persona)
             startActivity(intent)
         }
     }

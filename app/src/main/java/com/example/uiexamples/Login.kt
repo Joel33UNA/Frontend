@@ -30,7 +30,7 @@ class Login : AppCompatActivity() {
                 val bundle = Bundle()
                 val login = usuarios.loginU(user_name.toString(), password.toString())
                 val i = Intent(this, MenuJob::class.java)
-                i.putExtra("Login", login)
+                i.putExtra("usuario", login)
                 startActivity(i)
             }else{
                 Toast.makeText(this, "El usuario ${user_name.toString()} no se encuentra registrado o las credenciales son incorrectas", Toast.LENGTH_SHORT).show()

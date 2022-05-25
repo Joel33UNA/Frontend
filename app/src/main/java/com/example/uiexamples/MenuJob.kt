@@ -32,7 +32,7 @@ class MenuJob : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         setSupportActionBar(toolbar)
 
         val bundle = intent.extras
-        l =  bundle?.getSerializable("Login") as Usuario
+        l =  bundle?.getSerializable("usuario") as Usuario
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -61,26 +61,23 @@ class MenuJob : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-
+        var i: Intent? = null
         when (item.itemId){
             R.id.nav_info -> {
-                val i = Intent(this, InfoUsuario::class.java)
                 val bundle = intent.extras
-                l =  bundle?.getSerializable("Login") as Usuario
+                l =  bundle?.getSerializable("usuario") as Usuario
+                if(l.rol == "administrador"){
+                    i = Intent(this, InfoUsuario::class.java)
+                }else{
+                    i = Intent(this, JobApplication::class.java)
+                }
                 i.putExtra("usuario",l)
                 startActivity(i)
             }
             R.id.usuarios -> {
-                val bundle = intent.extras
-                val l =  bundle?.getSerializable("Login") as Usuario
-                if (l.rol == "administrador"){
-                    val i = Intent(this, CrudUsuarios::class.java)
-                    startActivity(i)
-                }else{
-                    val i = Intent(this, JobApplication::class.java)
-                    i.putExtra("Login",l)
-                    startActivity(i)
-                }
+
+                    startActivity(Intent(this, CrudUsuarios::class.java))
+
             }
             R.id.logout -> {
                 val i = Intent(this, Login::class.java)
