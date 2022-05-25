@@ -10,9 +10,9 @@
                 android:title="Información"/>
 
         <item
-            android:id="@+id/usuarios"
-            android:icon="@android:drawable/ic_menu_agenda"
-            android:title="Opciones" />
+                android:id="@+id/usuarios"
+                android:icon="@android:drawable/ic_menu_agenda"
+                android:title="Usuarios"/>
 
         <item
                 android:id="@+id/logout"

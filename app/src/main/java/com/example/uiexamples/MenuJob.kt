@@ -22,6 +22,7 @@ import com.google.android.material.snackbar.Snackbar
 class MenuJob : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var l : Usuario
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,9 @@ class MenuJob : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        val bundle = intent.extras
+        l =  bundle?.getSerializable("Login") as Usuario
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -46,6 +50,12 @@ class MenuJob : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_example, menu)
+
+        var navigationView = findViewById<NavigationView>(R.id.nav_view);
+        var  nav_Menu = navigationView.getMenu();
+        if(l.rol=="standard")
+            nav_Menu.findItem(R.id.usuarios).setVisible(false)
+
         return true
     }
 
@@ -56,7 +66,7 @@ class MenuJob : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
             R.id.nav_info -> {
                 val i = Intent(this, InfoUsuario::class.java)
                 val bundle = intent.extras
-                val l =  bundle?.getSerializable("Login") as Usuario
+                l =  bundle?.getSerializable("Login") as Usuario
                 i.putExtra("usuario",l)
                 startActivity(i)
             }
