@@ -3,10 +3,7 @@ package com.example.uiexamples
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
+import android.widget.*
 
 class RegistrarUsuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +31,7 @@ class RegistrarUsuario : AppCompatActivity() {
             Usuarios.instance.addUsuario(usuario)
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
+            Toast.makeText(this, "El usuario ${usuario.nombre} registrado exitosamente como ${usuario.rol}", Toast.LENGTH_SHORT).show()
         }
     }
 }

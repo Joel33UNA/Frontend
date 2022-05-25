@@ -38,7 +38,7 @@ class Login : AppCompatActivity() {
         }
 
         registrarse.setOnClickListener{
-            startActivity(Intent(this@Login, RegistrarUsuario::class.java))
+            startActivity(Intent(this@Login, Registrarse::class.java))
         }
 
         nuevaPass.setOnClickListener{
